@@ -1,0 +1,12 @@
+{
+  "run_id": "R-swarm-C-004-s55",
+  "steps": 1,
+  "events": [
+    {
+      "kind": "decision",
+      "payload": {
+        "status": "needs_info"
+      }
+    }
+  ]
+}

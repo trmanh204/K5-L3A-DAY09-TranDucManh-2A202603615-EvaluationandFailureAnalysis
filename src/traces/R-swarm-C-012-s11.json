@@ -1,0 +1,55 @@
+{
+  "run_id": "R-swarm-C-012-s11",
+  "steps": 3,
+  "events": [
+    {
+      "kind": "handoff",
+      "payload": {
+        "principal_scope": "owner_order_only",
+        "max_output_tokens": 400,
+        "allowed_tools": [
+          "lookup_order",
+          "lookup_policy",
+          "compute_compensation"
+        ],
+        "facts": {},
+        "request_id": "REQ-C-012",
+        "claim_id": "C-012",
+        "task": "check_applicable_policy",
+        "contract_version": "handoff.v1"
+      }
+    },
+    {
+      "kind": "investigator",
+      "payload": {
+        "lookup_order": {
+          "visible": true,
+          "reason": "ok",
+          "order": {
+            "order_id": "O-107",
+            "status": "delivered_late",
+            "delay_days": 4,
+            "shipping_fee_vnd": 35000,
+            "paid_vnd": 250000,
+            "damage_verified": false,
+            "carrier": "LOGIX_LOCAL"
+          }
+        },
+        "policy_count": 1
+      }
+    },
+    {
+      "kind": "quote",
+      "payload": {
+        "amount_vnd": 35000,
+        "reason": "entitled",
+        "clause_ids": [
+          "SHIP-LATE-03"
+        ],
+        "parts": {
+          "SHIP-LATE-03": 35000
+        }
+      }
+    }
+  ]
+}

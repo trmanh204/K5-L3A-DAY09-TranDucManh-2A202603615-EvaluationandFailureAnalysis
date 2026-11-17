@@ -1,0 +1,40 @@
+{
+  "run_id": "R-fixed-C-005-s22",
+  "steps": 3,
+  "events": [
+    {
+      "kind": "handoff",
+      "payload": {
+        "task": "check_applicable_policy",
+        "request_id": "REQ-C-005",
+        "principal_scope": "owner_order_only",
+        "facts": {},
+        "contract_version": "handoff.v1",
+        "max_output_tokens": 400,
+        "allowed_tools": [
+          "lookup_order",
+          "lookup_policy",
+          "compute_compensation"
+        ],
+        "claim_id": "C-005"
+      }
+    },
+    {
+      "kind": "investigator",
+      "payload": {
+        "lookup_order": {
+          "visible": false,
+          "reason": "outside_principal_scope",
+          "order_id": "O-110"
+        },
+        "policy_count": 1
+      }
+    },
+    {
+      "kind": "reply",
+      "payload": {
+        "text": "Dạ, yêu cầu đã được chuyển cho chuyên viên xử lý."
+      }
+    }
+  ]
+}

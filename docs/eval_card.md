@@ -2,7 +2,7 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
-- **Run ID / eval set SHA:** E-swarm-20261117-3360 · eval set SHA: `3360bdbd188d`
+- **Run ID / eval set SHA:** E-swarm-20261117-baad · eval set SHA: `baadc41dae37`
 - **Phiên bản:** code (branch starter/d09) · eval set v1 · metric_spec 1.0 · seeds: 11, 22, 33, 44, 55
 - **Eval set:** v1, 14 item × 5 seed (tổng cộng 70 trials), nguồn lab8_public; nhãn: `data/eval/labels_v1.json` tách riêng khỏi item.
 - **Metric & ngưỡng:**

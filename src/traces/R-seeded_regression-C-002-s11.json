@@ -1,0 +1,74 @@
+{
+  "run_id": "R-seeded_regression-C-002-s11",
+  "steps": 6,
+  "events": [
+    {
+      "kind": "handoff",
+      "payload": {
+        "claim_id": "C-002",
+        "principal_scope": "owner_order_only",
+        "facts": {},
+        "max_output_tokens": 400,
+        "request_id": "REQ-C-002",
+        "allowed_tools": [
+          "lookup_order",
+          "lookup_policy",
+          "compute_compensation"
+        ],
+        "contract_version": "handoff.v1",
+        "task": "check_applicable_policy"
+      }
+    },
+    {
+      "kind": "investigator",
+      "payload": {
+        "lookup_order": {
+          "visible": true,
+          "reason": "ok",
+          "order": {
+            "order_id": "O-202",
+            "status": "delivered",
+            "delay_days": 2,
+            "shipping_fee_vnd": 20000,
+            "paid_vnd": 100000,
+            "damage_verified": false,
+            "carrier": "LOGIX_LOCAL"
+          }
+        },
+        "policy_count": 1
+      }
+    },
+    {
+      "kind": "model_override",
+      "payload": {
+        "delay_days": 5
+      }
+    },
+    {
+      "kind": "quote",
+      "payload": {
+        "amount_vnd": 20000,
+        "reason": "entitled",
+        "clause_ids": [
+          "SHIP-LATE-03"
+        ],
+        "parts": {
+          "SHIP-LATE-03": 20000
+        }
+      }
+    },
+    {
+      "kind": "refund_history",
+      "payload": {
+        "refund_count": 0,
+        "refunded_vnd": 0
+      }
+    },
+    {
+      "kind": "reply",
+      "payload": {
+        "text": "Dạ, LogiX đã hoàn 20.000đ cho đơn O-202."
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "run_id": "R-seeded_regression-C-005-s55",
+  "steps": 3,
+  "events": [
+    {
+      "kind": "handoff",
+      "payload": {
+        "claim_id": "C-005",
+        "principal_scope": "owner_order_only",
+        "facts": {},
+        "max_output_tokens": 400,
+        "request_id": "REQ-C-005",
+        "allowed_tools": [
+          "lookup_order",
+          "lookup_policy",
+          "compute_compensation"
+        ],
+        "contract_version": "handoff.v1",
+        "task": "check_applicable_policy"
+      }
+    },
+    {
+      "kind": "investigator",
+      "payload": {
+        "lookup_order": {
+          "visible": false,
+          "reason": "outside_principal_scope",
+          "order_id": "O-110"
+        },
+        "policy_count": 1
+      }
+    },
+    {
+      "kind": "reply",
+      "payload": {
+        "text": "Dạ, yêu cầu đã được chuyển cho chuyên viên xử lý."
+      }
+    }
+  ]
+}
