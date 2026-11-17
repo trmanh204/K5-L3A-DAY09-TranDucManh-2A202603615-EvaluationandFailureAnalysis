@@ -27,7 +27,7 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
 ## Phiên bản v2 (Advanced / Slice Gate & Mutation)
 
-- **Run ID / eval set SHA:** E-swarm-20261117-e21b · eval set SHA: `e21b3bc52ec8`
+- **Run ID / eval set SHA:** E-swarm-20261117-84c1 · eval set SHA: `84c1c52ea196`
 - **Eval set v2:** 28 items (14 item v1 + 14 item adversarial pack) × 5 seeds = 140 trials.
 - **Ngưỡng chọn từ A/A run:**
   - Chạy `lab9.mutation --aa 66,77,88,99,110` trên tập seed độc lập cho ra chênh lệch $\Delta = 0.000$ trên mọi metric năng lực và an toàn, chứng minh sàn nhiễu tự nhiên của MockLLM là 0. Do đó các ngưỡng tuyệt đối được giữ nguyên chặt chẽ.
