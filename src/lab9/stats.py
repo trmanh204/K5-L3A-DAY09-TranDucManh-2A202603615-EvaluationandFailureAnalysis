@@ -98,13 +98,13 @@ def paired_bootstrap(a: Sequence[float], b: Sequence[float], *, n_resamples: int
 
 def pass_at_k(n: int, c: int, k: int) -> float:
     """Probability that AT LEAST ONE of k trials drawn from n (c of them passing) passes."""
-    if k > n:
-        raise ValueError("k > n")
+    if k > n or k <= 0 or c < 0 or c > n:
+        raise ValueError("invalid arguments")
     return float(1.0 - math.comb(n - c, k) / math.comb(n, k))
 
 
 def pass_hat_k(n: int, c: int, k: int) -> float:
     """pass^k (tau-bench, Yao et al. 2024): probability that ALL k trials drawn from n pass."""
-    if k > n:
-        raise ValueError("k > n")
+    if k > n or k <= 0 or c < 0 or c > n:
+        raise ValueError("invalid arguments")
     return float(math.comb(c, k) / math.comb(n, k))

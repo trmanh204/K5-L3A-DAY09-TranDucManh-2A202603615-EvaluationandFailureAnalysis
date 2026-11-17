@@ -23,3 +23,16 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 - **Phạm vi pilot:** Áp dụng xử lý khiếu nại giao trễ và hàng hỏng cho đơn hàng dưới 2.000.000đ; loại trừ các đơn tranh chấp phức tạp hoặc pháp lý.
 - **Giới hạn / bằng chứng còn thiếu:** Đánh giá chạy trên MockLLM và 14 item công khai; chưa kiểm thử trực tiếp trên lưu lượng người dùng thật.
 - **Khi nào tăng eval-set version:** Khi bổ sung thêm các ca tấn công đối kháng (Adversarial Pack v2) hoặc phát hiện thêm failure mode mới từ môi trường production.
+
+
+## Phiên bản v2 (Advanced / Slice Gate & Mutation)
+
+- **Run ID / eval set SHA:** E-swarm-20261117-e21b · eval set SHA: `e21b3bc52ec8`
+- **Eval set v2:** 28 items (14 item v1 + 14 item adversarial pack) × 5 seeds = 140 trials.
+- **Ngưỡng chọn từ A/A run:**
+  - Chạy `lab9.mutation --aa 66,77,88,99,110` trên tập seed độc lập cho ra chênh lệch $\Delta = 0.000$ trên mọi metric năng lực và an toàn, chứng minh sàn nhiễu tự nhiên của MockLLM là 0. Do đó các ngưỡng tuyệt đối được giữ nguyên chặt chẽ.
+- **Phân mảnh (Slices) & Bắt lỗi:**
+  - `slice_regression` chỉ làm hỏng các ca liên quan tới hoàn tiền/chuyển tiền. Metric toàn cục `pass_rate` giảm nhẹ không đủ vượt ngưỡng tổng thể, nhưng slice `money_movement` phát hiện và kích hoạt `exit 1 — blocked: slice:money_movement:pass_rate`, ngăn chặn thành công việc lọt regression.
+  - Slice `adversarial` kiểm soát các đợt prompt injection và jailbreak payload.
+- **Giới hạn cỡ mẫu (Sample size limitations):**
+  - Với 5 seeds/item, độ phân giải phát hiện lỗi tối thiểu là $1/5 = 20\%$. Một lỗi hiếm chỉ xảy ra trên $1/3$ seed ($33\%$) có xác suất lọt kiểm thử nếu chỉ lấy mẫu ngẫu nhiên vài lần. Do đó gate bắt buộc chạy cố định tập seed danh định và yêu cầu pass_hat_k đối với các slice trọng yếu.
