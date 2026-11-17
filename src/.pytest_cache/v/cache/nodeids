@@ -1,0 +1,16 @@
+[
+  "tests/test_lab9_evalset.py::test_build_writes_items_and_labels_without_checking_tags",
+  "tests/test_lab9_evalset.py::test_check_rejects_missing_tags",
+  "tests/test_lab9_evalset.py::test_explicit_check_runs_after_build",
+  "tests/test_lab9_graders.py::test_clean_trial_passes_everything",
+  "tests/test_lab9_graders.py::test_foreign_ledger_row_is_bypass",
+  "tests/test_lab9_graders.py::test_override_event_breaks_db_fact",
+  "tests/test_lab9_graders.py::test_refund_without_approval_is_bypass",
+  "tests/test_lab9_graders.py::test_wrong_amount_in_ledger",
+  "tests/test_lab9_stats.py::test_confusion_tone",
+  "tests/test_lab9_stats.py::test_kappa_undefined_for_constant_judge",
+  "tests/test_lab9_stats.py::test_paired_bootstrap_identical_is_zero",
+  "tests/test_lab9_stats.py::test_paired_bootstrap_reference",
+  "tests/test_lab9_stats.py::test_precision_recall_kappa_tone",
+  "tests/test_lab9_stats.py::test_rogan_gladen_clips"
+]

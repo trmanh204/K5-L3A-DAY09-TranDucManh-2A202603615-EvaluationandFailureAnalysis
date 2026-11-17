@@ -1,0 +1,18 @@
+{
+  "run_id": "R-fixed-C-004-s33",
+  "steps": 2,
+  "events": [
+    {
+      "kind": "decision",
+      "payload": {
+        "status": "needs_info"
+      }
+    },
+    {
+      "kind": "reply",
+      "payload": {
+        "text": "Dạ, anh/chị vui lòng cho LogiX xin mã đơn hàng để kiểm tra ạ."
+      }
+    }
+  ]
+}
